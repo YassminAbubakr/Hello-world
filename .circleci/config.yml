@@ -11,7 +11,6 @@ jobs:
       - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
     # Steps are a list of commands to run inside the docker container above.
     steps:
-      - checkout # this pulls code down from GitHub
       - run: echo "hello" # This prints "A first hello" to stdout.
 
   print_world:
@@ -19,7 +18,6 @@ jobs:
       - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
     # Steps are a list of commands to run inside the docker container above.
     steps:
-      - checkout # this pulls code down from GitHub
       - run: echo "world" # This prints "A first hello" to stdout.
 
 workflows:
