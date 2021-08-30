@@ -7,19 +7,15 @@ orbs:
 # Orchestrate or schedule a set of jobs
 jobs:
   print_hello:
-    docker: # it uses the docker executor
-      - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
-    # Steps are a list of commands to run inside the docker container above.
+    docker:
+      - image: circleci/node:13.8.0
     steps:
-      - run: echo "hello" # This prints "A first hello" to stdout.
-
+      - run: echo hello
   print_world:
-     docker: # it uses the docker executor
-      - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
-    # Steps are a list of commands to run inside the docker container above.
+    docker:
+      - image: circleci/node:13.8.0
     steps:
-      - run: echo "world" # This prints "A first hello" to stdout.
-
+      - run: echo world
 workflows:
   # Name the workflow "welcome"
   welcome:
