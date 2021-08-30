@@ -20,7 +20,9 @@ jobs:
     docker:
       - image: circleci/node:13.8.0
     steps:
-      - run: echo $MY_Name
+      - name: "echo an env var that is part of our project"
+          command: |
+            echo $MY_Name
 workflows:
   # Name the workflow "welcome"
   welcome:
@@ -32,4 +34,3 @@ workflows:
           requires:
             - print_hello
       - print_my_name
-      
