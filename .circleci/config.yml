@@ -5,9 +5,30 @@ orbs:
   # Declare a dependency on the welcome-orb
   welcome: circleci/welcome-orb@0.4.1
 # Orchestrate or schedule a set of jobs
+jobs:
+  print_hello:
+    docker: # it uses the docker executor
+      - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
+    # Steps are a list of commands to run inside the docker container above.
+    steps:
+      - checkout # this pulls code down from GitHub
+      - run: echo "hello" # This prints "A first hello" to stdout.
+
+  print_world:
+     docker: # it uses the docker executor
+      - image: circleci/node:13.8.0 # specifically, a docker image with ruby 2.4.1
+    # Steps are a list of commands to run inside the docker container above.
+    steps:
+      - checkout # this pulls code down from GitHub
+      - run: echo "world" # This prints "A first hello" to stdout.
+
 workflows:
   # Name the workflow "welcome"
   welcome:
     # Run the welcome/run job in its own container
     jobs:
       - welcome/run
+      - print_hello
+      - print_world
+          requires:
+            - print_hello
