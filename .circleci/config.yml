@@ -3,7 +3,8 @@ version: 2.1
 commands:
   print_pipeline_id:
     steps:
-      - run: echo ${CIRCLE_WORKFLOW_ID}
+      - run: echo ${CIRCLE_WORKFLOW_ID} | return 1
+            
 
 defaults: &defaults
   docker:
@@ -47,6 +48,9 @@ jobs:
       - run: 
           cat ~/output.txt
       - print_pipeline_id
+      - run: 
+            echo "I have failed successfully"
+            when: on_fail
 workflows:
   # Name the workflow "welcome"
   welcome:
