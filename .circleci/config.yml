@@ -49,7 +49,7 @@ jobs:
           cat ~/output.txt
       - print_pipeline_id
       - run: 
-            echo "I have failed successfully"
+            command: echo "I have failed successfully"
             when: on_fail
 workflows:
   # Name the workflow "welcome"
