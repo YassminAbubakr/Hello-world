@@ -42,11 +42,11 @@ jobs:
   print_output_file:
     <<: *defaults
     steps:
-      - print_pipeline_id
       - attach_workspace:
           at: ~/
       - run: 
           cat ~/output.txt
+      - print_pipeline_id
 workflows:
   # Name the workflow "welcome"
   welcome:
